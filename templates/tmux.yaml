@@ -1,24 +1,24 @@
 extension: ".conf"
 template: |
-  # tmux colorscheme (Boxy aesthetic)
+  # tmux colorscheme (Boxy & Colorful)
   set -g status-position bottom
   set -g status-justify "left"
   set -g status-style "bg={{background}},fg={{foreground}}"
 
-  # Status left (Session name in a box)
+  # Status left (Session name in a distinct color)
   set -g status-left-length 100
   set -g status-left "#[fg={{background}},bg={{blue}},bold]  #S #[fg={{blue}},bg={{background}}] "
 
-  # Windows (Active and Inactive in rectangular blocks)
+  # Windows (Vibrant Active vs Muted Inactive)
   set -g window-status-separator ""
-  set -g window-status-format "#[fg={{foreground}},bg={{bright_black}}] #I #W "
-  set -g window-status-current-format "#[fg={{background}},bg={{blue}},bold] #I #W "
+  set -g window-status-format "#[fg={{background}},bg={{bright_black}}] #I #W "
+  set -g window-status-current-format "#[fg={{background}},bg={{green}},bold] #I #W "
 
-  # Status right (Host and Path in rectangular blocks)
+  # Status right (Colorful segments)
   set -g status-right-length 100
-  set -g status-right "#[fg={{background}},bg={{magenta}}] 󰃭 %Y-%m-%d #[fg={{background}},bg={{cyan}}]  #{pane_current_path} "
+  set -g status-right "#[fg={{background}},bg={{yellow}}] 󰃭 %Y-%m-%d #[fg={{background}},bg={{magenta}}]  #{pane_current_path} #[fg={{background}},bg={{cyan}}]  #(whoami) "
 
   # Message and borders
   set -g message-style "bg={{selection_background}},fg={{selection_foreground}},bold"
   set -g pane-border-style "fg={{bright_black}}"
-  set -g pane-active-border-style "fg={{blue}}"
+  set -g pane-active-border-style "fg={{green}}"
