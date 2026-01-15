@@ -24,3 +24,7 @@ colors:
   bright_magenta: "#b48ead"
   bright_cyan:    "#8fbcbb"
   bright_white:   "#eceff4"
+
+  # Aliases for template compatibility
+  surface0: "#4c566a" # selection_background
+  overlay0: "#4c566a" # bright_black (same as selection in Nord)

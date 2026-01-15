@@ -15,6 +15,7 @@ colors:
   magenta: "#b16286"
   cyan:    "#689d6a"
   white:   "#a89984"
+  orange:  "#d65d0e"
   
   bright_black:   "#928374"
   bright_red:     "#fb4934"
@@ -24,3 +25,8 @@ colors:
   bright_magenta: "#d3869b"
   bright_cyan:    "#8ec07c"
   bright_white:   "#ebdbb2"
+  bright_orange:  "#fe8019"
+
+  # Aliases for template compatibility
+  surface0: "#504945" # selection_background
+  overlay0: "#928374" # bright_black

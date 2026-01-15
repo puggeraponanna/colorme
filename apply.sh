@@ -11,9 +11,17 @@ mkdir -p ~/.config/ghostty
 
 # 1. Neovim
 if [ -f "output/neovim/${SCHEME}.lua" ]; then
-    echo "  - Copying Neovim colorscheme to ~/.config/nvim/colors/colorme.lua"
-    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/colors/colorme.lua
+    mkdir -p ~/.config/nvim/lua
+    mkdir -p ~/.config/nvim/colors
+
+    echo "  - Copying Neovim Lua module to ~/.config/nvim/lua/colorme.lua"
+    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/lua/colorme.lua
+    
+    echo "  - Creating Neovim colorscheme wrapper at ~/.config/nvim/colors/colorme.lua"
+    echo "require('colorme')" > ~/.config/nvim/colors/colorme.lua
+    
     echo "    (Tip: Add 'vim.cmd(\"colorscheme colorme\")' to your init.lua)"
+    echo "    (Tip: You can now use require('colorme').lualine_theme for lualine setup)"
 else
     echo "  - Warning: Neovim scheme for $SCHEME not found."
 fi
@@ -42,15 +50,13 @@ fi
 
 # 5. Starship
 if [ -f "output/starship/${SCHEME}.toml" ]; then
-    echo "  - Generating Starship configuration"
-    cp "output/starship/${SCHEME}.toml" ~/.config/starship_colors.toml
     if [ -f ~/.config/starship_base.toml ]; then
-        # Merge base config with the new colors
-        cat ~/.config/starship_base.toml ~/.config/starship_colors.toml > ~/.config/starship.toml
-        echo "    (Merged starship_base.toml and starship_colors.toml -> starship.toml)"
+        echo "  - Generating Starship configuration (merging base + $SCHEME colors)"
+        # Merge base config with the new colors directly
+        cat ~/.config/starship_base.toml "output/starship/${SCHEME}.toml" > ~/.config/starship.toml
     else
+        echo "  - Warning: ~/.config/starship_base.toml not found."
         echo "    (Tip: Move your main config to ~/.config/starship_base.toml for automatic color merging)"
-        echo "    (And ensure palette = \"colorme\" is set in that base file)"
     fi
 fi
 

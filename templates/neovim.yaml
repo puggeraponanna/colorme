@@ -64,13 +64,73 @@ template: |
     VertSplit = { fg = cp.surface0 },
     StatusLine = { fg = cp.text, bg = cp.surface0 },
     StatusLineNC = { fg = cp.overlay0, bg = cp.surface0 },
+
+    -- Cursor & Mode
+    Cursor = { fg = cp.base, bg = cp.text },
+    TermCursor = { fg = cp.base, bg = cp.text },
+    ModeMsg = { fg = cp.text, bold = true },
+
+    -- Lualine (ensure dark text on colored backgrounds)
+    lualine_a_normal = { fg = cp.base, bg = cp.blue, bold = true },
+    lualine_a_insert = { fg = cp.base, bg = cp.green, bold = true },
+    lualine_a_visual = { fg = cp.base, bg = cp.magenta, bold = true },
+    lualine_a_replace = { fg = cp.base, bg = cp.red, bold = true },
+    lualine_a_command = { fg = cp.base, bg = cp.yellow, bold = true },
+
+    -- Lualine CamelCase variants
+    LualineANormal = { fg = cp.base, bg = cp.blue, bold = true },
+    LualineAInsert = { fg = cp.base, bg = cp.green, bold = true },
+    LualineAVisual = { fg = cp.base, bg = cp.magenta, bold = true },
+    LualineAReplace = { fg = cp.base, bg = cp.red, bold = true },
+    LualineACommand = { fg = cp.base, bg = cp.yellow, bold = true },
+
+    -- Diff groups (used by Lualine 'auto' theme for mode indicators)
+    DiffAdd = { fg = cp.base, bg = cp.green },
+    DiffChange = { fg = cp.base, bg = cp.yellow },
+    DiffDelete = { fg = cp.base, bg = cp.red },
+    DiffText = { fg = cp.base, bg = cp.blue },
   }
 
-  for group, opts in pairs(groups) do
-    local parts = { "highlight", group }
-    if opts.fg then table.insert(parts, "guifg=" .. opts.fg) end
-    if opts.bg then table.insert(parts, "guibg=" .. opts.bg) end
-    if opts.bold then table.insert(parts, "gui=bold") end
-    if opts.italic then table.insert(parts, "gui=italic") end
-    vim.cmd(table.concat(parts, " "))
+  for group, hl in pairs(groups) do
+    vim.api.nvim_set_hl(0, group, hl)
   end
+
+  -- Explicit Lualine theme table
+  local lualine_theme = {
+    normal = {
+      a = { fg = cp.base, bg = cp.blue, gui = "bold" },
+      b = { fg = cp.text, bg = cp.surface0 },
+      c = { fg = cp.text, bg = cp.base },
+    },
+    insert = {
+      a = { fg = cp.base, bg = cp.green, gui = "bold" },
+      b = { fg = cp.text, bg = cp.surface0 },
+      c = { fg = cp.text, bg = cp.base },
+    },
+    visual = {
+      a = { fg = cp.base, bg = cp.magenta, gui = "bold" },
+      b = { fg = cp.text, bg = cp.surface0 },
+      c = { fg = cp.text, bg = cp.base },
+    },
+    replace = {
+      a = { fg = cp.base, bg = cp.red, gui = "bold" },
+      b = { fg = cp.text, bg = cp.surface0 },
+      c = { fg = cp.text, bg = cp.base },
+    },
+    command = {
+      a = { fg = cp.base, bg = cp.yellow, gui = "bold" },
+      b = { fg = cp.text, bg = cp.surface0 },
+      c = { fg = cp.text, bg = cp.base },
+    },
+    inactive = {
+      a = { fg = cp.overlay0, bg = cp.base },
+      b = { fg = cp.overlay0, bg = cp.base },
+      c = { fg = cp.overlay0, bg = cp.base },
+    },
+  }
+
+  -- Return the theme table so it can be used in lualine config
+  return {
+    colors = cp,
+    lualine_theme = lualine_theme,
+  }
