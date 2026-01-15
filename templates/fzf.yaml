@@ -1,0 +1,7 @@
+extension: ".sh"
+template: |
+  export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+    --color=fg:{{foreground}},bg:{{background}},hl:{{blue}}
+    --color=fg+:{{foreground}},bg+:{{selection_background}},hl+:{{blue}}
+    --color=info:{{yellow}},prompt:{{blue}},pointer:{{magenta}}
+    --color=marker:{{magenta}},spinner:{{magenta}},header:{{blue}}'
