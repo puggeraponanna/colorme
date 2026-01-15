@@ -1,8 +1,23 @@
 extension: ".conf"
 template: |
-  # tmux colorscheme
+  # tmux colorscheme (Catppuccin aesthetic)
+  set -g status-position top
+  set -g status-justify "left"
   set -g status-style "bg={{background}},fg={{foreground}}"
-  set -g message-style "bg={{selection_background}},fg={{selection_foreground}}"
-  set -g pane-border-style "fg={{black}}"
+
+  # Status left (Session name in a capsule)
+  set -g status-left-length 100
+  set -g status-left "#[fg={{blue}},bg={{background}},bold]  #S #[fg={{background}},bg={{background}}] "
+
+  # Windows (Active and Inactive)
+  set -g window-status-format "#[fg={{bright_black}},bg={{background}}] #I #W "
+  set -g window-status-current-format "#[fg={{background}},bg={{blue}},bold] #I #W "
+
+  # Status right (Host and Date)
+  set -g status-right-length 100
+  set -g status-right "#[fg={{magenta}},bg={{background}}] 󰃭 %Y-%m-%d #[fg={{cyan}},bg={{background}}]  #{pane_current_path} "
+
+  # Message and borders
+  set -g message-style "bg={{selection_background}},fg={{selection_foreground}},bold"
+  set -g pane-border-style "fg={{bright_black}}"
   set -g pane-active-border-style "fg={{blue}}"
-  setw -g window-status-current-style "fg={{blue}},bg={{background}}"

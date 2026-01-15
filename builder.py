@@ -27,8 +27,12 @@ def main():
     for scheme_file in schemes:
         scheme_path = os.path.join(schemes_dir, scheme_file)
         scheme_data = load_yaml(scheme_path)
-        scheme_name = scheme_data.get('name', os.path.splitext(scheme_file)[0]).lower().replace(' ', '_')
+        scheme_name = scheme_data.get('name', os.path.splitext(scheme_file)[0])
         colors = scheme_data.get('colors', {})
+        
+        # Merge top-level data for template replacement
+        context = {**scheme_data, **colors}
+        context['name_lower'] = scheme_name.lower().replace(' ', '_')
 
         print(f"Processing scheme: {scheme_name}")
 
@@ -39,13 +43,13 @@ def main():
             extension = temp_data.get('extension', '')
             template_str = temp_data.get('template', '')
 
-            rendered = render_template(template_str, colors)
+            rendered = render_template(template_str, context)
 
             output_app_dir = os.path.join(output_dir, app_name)
             if not os.path.exists(output_app_dir):
                 os.makedirs(output_app_dir)
 
-            output_filename = f"{scheme_name}{extension}"
+            output_filename = f"{context['name_lower']}{extension}"
             output_path = os.path.join(output_app_dir, output_filename)
 
             with open(output_path, 'w') as f:

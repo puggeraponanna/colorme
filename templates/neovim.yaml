@@ -1,0 +1,67 @@
+extension: ".lua"
+template: |
+  -- Neovim colorscheme (Catppuccin-style organization)
+  local flavors = {
+    {{name}} = {
+      base = "{{background}}",
+      text = "{{foreground}}",
+      surface0 = "{{selection_background}}",
+      overlay0 = "{{bright_black}}",
+      blue = "{{blue}}",
+      magenta = "{{magenta}}",
+      cyan = "{{cyan}}",
+      green = "{{green}}",
+      yellow = "{{yellow}}",
+      red = "{{red}}",
+      maroon = "{{bright_red}}",
+      teal = "{{bright_cyan}}",
+      sky = "{{bright_blue}}",
+      pink = "{{bright_magenta}}",
+    }
+  }
+
+  local cp = flavors["{{name}}"]
+
+  vim.cmd("highlight clear")
+  vim.o.termguicolors = true
+  vim.g.colors_name = "{{name}}"
+
+  local groups = {
+    -- Base highlights
+    Normal = { fg = cp.text, bg = cp.base },
+    CursorLine = { bg = cp.surface0 },
+    Visual = { bg = cp.surface0, bold = true },
+    Search = { fg = cp.base, bg = cp.yellow },
+    IncSearch = { fg = cp.base, bg = cp.pink },
+    
+    -- Syntax
+    Comment = { fg = cp.overlay0, italic = true },
+    Constant = { fg = cp.pink },
+    String = { fg = cp.green },
+    Identifier = { fg = cp.sky },
+    Function = { fg = cp.blue },
+    Statement = { fg = cp.magenta },
+    PreProc = { fg = cp.pink },
+    Type = { fg = cp.yellow },
+    Special = { fg = cp.pink },
+    Error = { fg = cp.red, bold = true },
+    Todo = { fg = cp.base, bg = cp.yellow, bold = true },
+
+    -- UI
+    Pmenu = { fg = cp.text, bg = cp.surface0 },
+    PmenuSel = { fg = cp.text, bg = cp.overlay0, bold = true },
+    LineNr = { fg = cp.overlay0 },
+    CursorLineNr = { fg = cp.blue, bold = true },
+    VertSplit = { fg = cp.surface0 },
+    StatusLine = { fg = cp.text, bg = cp.surface0 },
+    StatusLineNC = { fg = cp.overlay0, bg = cp.surface0 },
+  }
+
+  for group, opts in pairs(groups) do
+    local parts = { "highlight", group }
+    if opts.fg then table.insert(parts, "guifg=" .. opts.fg) end
+    if opts.bg then table.insert(parts, "guibg=" .. opts.bg) end
+    if opts.bold then table.insert(parts, "gui=bold") end
+    if opts.italic then table.insert(parts, "gui=italic") end
+    vim.cmd(table.concat(parts, " "))
+  end
