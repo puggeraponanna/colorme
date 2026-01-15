@@ -3,6 +3,7 @@ template: |
   -- Neovim colorscheme (Catppuccin-style organization)
   local flavors = {
     colorme = {
+      background = "{{background_mode}}", -- "light" or "dark"
       base = "{{background}}",
       text = "{{foreground}}",
       surface0 = "{{selection_background}}",
@@ -28,6 +29,7 @@ template: |
 
   vim.cmd("highlight clear")
   vim.o.termguicolors = true
+  vim.o.background = cp.background or "dark"
   vim.g.colors_name = "colorme"
 
   local groups = {

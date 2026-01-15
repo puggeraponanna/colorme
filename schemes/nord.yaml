@@ -1,5 +1,6 @@
 name: "Nord"
 author: "arcticicestudio"
+background_mode: "dark"
 colors:
   background: "#2e3440"
   foreground: "#d8dee9"

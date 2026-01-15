@@ -5,6 +5,7 @@ template: |
   selection-background = {{selection_background}}
   selection-foreground = {{selection_foreground}}
   cursor-color = {{cursor}}
+  cursor-text = {{background}}
   
   palette = 0={{black}}
   palette = 1={{red}}
