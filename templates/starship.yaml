@@ -28,3 +28,15 @@ template: |
   base = "{{background}}"
   mantle = "{{background}}"
   crust = "{{background}}"
+
+  # Aliases for user's base config
+  color_fg0 = "{{foreground}}"
+  color_bg1 = "{{background}}"
+  color_bg3 = "{{selection_background}}"
+  color_blue = "{{blue}}"
+  color_aqua = "{{cyan}}"
+  color_green = "{{green}}"
+  color_orange = "{{bright_red}}"
+  color_purple = "{{magenta}}"
+  color_red = "{{red}}"
+  color_yellow = "{{yellow}}"
