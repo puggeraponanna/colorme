@@ -1,8 +1,6 @@
 extension: ".toml"
 template: |
-  # Starship palette
-  palette = "colorme"
-
+  # Starship palette snippet
   [palettes.colorme]
   rosewater = "{{bright_red}}"
   flamingo = "{{bright_red}}"

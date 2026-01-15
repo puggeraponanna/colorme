@@ -42,9 +42,16 @@ fi
 
 # 5. Starship
 if [ -f "output/starship/${SCHEME}.toml" ]; then
-    echo "  - Copying Starship palette to ~/.config/starship_colors.toml"
+    echo "  - Generating Starship configuration"
     cp "output/starship/${SCHEME}.toml" ~/.config/starship_colors.toml
-    echo "    (Tip: Add 'palette = \"colorme\"' and 'format = ...' setup to your starship.toml.)"
+    if [ -f ~/.config/starship_base.toml ]; then
+        # Merge base config with the new colors
+        cat ~/.config/starship_base.toml ~/.config/starship_colors.toml > ~/.config/starship.toml
+        echo "    (Merged starship_base.toml and starship_colors.toml -> starship.toml)"
+    else
+        echo "    (Tip: Move your main config to ~/.config/starship_base.toml for automatic color merging)"
+        echo "    (And ensure palette = \"colorme\" is set in that base file)"
+    fi
 fi
 
 echo "Done! Some apps might require a restart or manual sourcing to reflect changes."
