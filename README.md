@@ -25,7 +25,7 @@ make apply
 ```
 Or for a specific scheme:
 ```bash
-./apply.sh catppuccin
+make apply scheme=gruvbox
 ```
 
 > [!NOTE]

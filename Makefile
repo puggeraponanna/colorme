@@ -17,7 +17,7 @@ build: venv
 
 apply: build
 	@chmod +x apply.sh
-	./apply.sh
+	./apply.sh $(scheme)
 
 clean:
 	rm -rf output/
