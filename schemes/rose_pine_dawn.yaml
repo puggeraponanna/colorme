@@ -1,0 +1,33 @@
+name: "rose_pine_dawn"
+author: "Rosé Pine"
+background_mode: "light"
+colors:
+  background: "#fffaf3"
+  foreground: "#575279"
+  selection_background: "#f2e9de"
+  selection_foreground: "#575279"
+  cursor: "#575279"
+  
+  black:   "#f2e9de" # overlay / surface
+  red:     "#b4637a" # love
+  green:   "#286983" # pine
+  yellow:  "#ea9d34" # gold
+  blue:    "#907aa9" # iris
+  magenta: "#d7827e" # rose
+  cyan:    "#56948f" # foam
+  white:   "#575279" # text
+  orange:  "#ea9d34" # gold (alias)
+  
+  bright_black:   "#9893a5" # muted
+  bright_red:     "#b4637a"
+  bright_green:   "#286983"
+  bright_yellow:  "#ea9d34"
+  bright_blue:    "#907aa9"
+  bright_magenta: "#d7827e"
+  bright_cyan:    "#56948f"
+  bright_white:   "#575279"
+  bright_orange:  "#ea9d34"
+
+  # Aliases for template compatibility
+  surface0: "#f2e9de" # surface
+  overlay0: "#9893a5" # muted

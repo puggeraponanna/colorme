@@ -48,15 +48,27 @@ if [ -f "output/fzf/${SCHEME}.sh" ]; then
     echo "    (Tip: Add 'source ~/.fzf_colors.sh' to your ~/.zshrc or ~/.bashrc)"
 fi
 
-# 5. Starship
 if [ -f "output/starship/${SCHEME}.toml" ]; then
     if [ -f ~/.config/starship_base.toml ]; then
-        echo "  - Generating Starship configuration (merging base + $SCHEME colors)"
-        # Merge base config with the new colors directly
+        echo "  - Generating Starship configuration (merging base + ${SCHEME} colors)"
         cat ~/.config/starship_base.toml "output/starship/${SCHEME}.toml" > ~/.config/starship.toml
     else
         echo "  - Warning: ~/.config/starship_base.toml not found."
-        echo "    (Tip: Move your main config to ~/.config/starship_base.toml for automatic color merging)"
+    fi
+fi
+
+# 6. Bat
+if [ -f "output/bat/${SCHEME}.tmTheme" ]; then
+    echo "  - Installing Bat theme"
+    mkdir -p ~/.config/bat/themes
+    cp "output/bat/${SCHEME}.tmTheme" ~/.config/bat/themes/colorme.tmTheme
+    bat cache --build > /dev/null
+    
+    # Ensure theme is set in bat config
+    mkdir -p ~/.config/bat
+    touch ~/.config/bat/config
+    if ! grep -q "colorme" ~/.config/bat/config; then
+        echo "--theme=\"colorme\"" >> ~/.config/bat/config
     fi
 fi
 

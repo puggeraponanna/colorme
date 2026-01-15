@@ -1,0 +1,33 @@
+name: "rose_pine_moon"
+author: "Rosé Pine"
+background_mode: "dark"
+colors:
+  background: "#232136"
+  foreground: "#e0def4"
+  selection_background: "#2a273f"
+  selection_foreground: "#e0def4"
+  cursor: "#e0def4"
+  
+  black:   "#393552" # overlay
+  red:     "#eb6f92" # love
+  green:   "#3e8fb0" # pine
+  yellow:  "#f6c177" # gold
+  blue:    "#c4a7e7" # iris
+  magenta: "#ea9a97" # rose
+  cyan:    "#9ccfd8" # foam
+  white:   "#e0def4" # text
+  orange:  "#f6c177" # gold (alias)
+  
+  bright_black:   "#6e6a86" # muted
+  bright_red:     "#eb6f92"
+  bright_green:   "#3e8fb0"
+  bright_yellow:  "#f6c177"
+  bright_blue:    "#c4a7e7"
+  bright_magenta: "#ea9a97"
+  bright_cyan:    "#9ccfd8"
+  bright_white:   "#e0def4"
+  bright_orange:  "#f6c177"
+
+  # Aliases for template compatibility
+  surface0: "#2a273f" # surface
+  overlay0: "#393552" # overlay
