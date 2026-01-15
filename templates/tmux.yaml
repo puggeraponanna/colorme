@@ -1,21 +1,22 @@
 extension: ".conf"
 template: |
-  # tmux colorscheme (Catppuccin aesthetic)
-  set -g status-position top
+  # tmux colorscheme (Boxy aesthetic)
+  set -g status-position bottom
   set -g status-justify "left"
   set -g status-style "bg={{background}},fg={{foreground}}"
 
-  # Status left (Session name in a capsule)
+  # Status left (Session name in a box)
   set -g status-left-length 100
-  set -g status-left "#[fg={{blue}},bg={{background}},bold]  #S #[fg={{background}},bg={{background}}] "
+  set -g status-left "#[fg={{background}},bg={{blue}},bold]  #S #[fg={{blue}},bg={{background}}] "
 
-  # Windows (Active and Inactive)
-  set -g window-status-format "#[fg={{bright_black}},bg={{background}}] #I #W "
+  # Windows (Active and Inactive in rectangular blocks)
+  set -g window-status-separator ""
+  set -g window-status-format "#[fg={{foreground}},bg={{bright_black}}] #I #W "
   set -g window-status-current-format "#[fg={{background}},bg={{blue}},bold] #I #W "
 
-  # Status right (Host and Date)
+  # Status right (Host and Path in rectangular blocks)
   set -g status-right-length 100
-  set -g status-right "#[fg={{magenta}},bg={{background}}] 󰃭 %Y-%m-%d #[fg={{cyan}},bg={{background}}]  #{pane_current_path} "
+  set -g status-right "#[fg={{background}},bg={{magenta}}] 󰃭 %Y-%m-%d #[fg={{background}},bg={{cyan}}]  #{pane_current_path} "
 
   # Message and borders
   set -g message-style "bg={{selection_background}},fg={{selection_foreground}},bold"
