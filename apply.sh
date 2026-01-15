@@ -40,4 +40,11 @@ if [ -f "output/fzf/${SCHEME}.sh" ]; then
     echo "    (Tip: Add 'source ~/.fzf_colors.sh' to your ~/.zshrc or ~/.bashrc)"
 fi
 
+# 5. Starship
+if [ -f "output/starship/${SCHEME}.toml" ]; then
+    echo "  - Copying Starship palette to ~/.config/starship_colors.toml"
+    cp "output/starship/${SCHEME}.toml" ~/.config/starship_colors.toml
+    echo "    (Tip: Add 'palette = \"${SCHEME}\"' and 'format = ...' setup to your starship.toml. You can 'add_to_config = \"~/.config/starship_colors.toml\"' if using newer starship versions or just manual copy.)"
+fi
+
 echo "Done! Some apps might require a restart or manual sourcing to reflect changes."
