@@ -1,5 +1,25 @@
 extension: ".conf"
 template: |
+  # Export colors as variables for use in tmux.conf
+  set -g @colorme_bg "{{background}}"
+  set -g @colorme_fg "{{foreground}}"
+  set -g @colorme_surface0 "{{selection_background}}"
+  set -g @colorme_overlay0 "{{bright_black}}"
+  set -g @colorme_red "{{red}}"
+  set -g @colorme_green "{{green}}"
+  set -g @colorme_yellow "{{yellow}}"
+  set -g @colorme_blue "{{blue}}"
+  set -g @colorme_magenta "{{magenta}}"
+  set -g @colorme_cyan "{{cyan}}"
+  set -g @colorme_orange "{{orange}}"
+  set -g @colorme_bright_red "{{bright_red}}"
+  set -g @colorme_bright_green "{{bright_green}}"
+  set -g @colorme_bright_yellow "{{bright_yellow}}"
+  set -g @colorme_bright_blue "{{bright_blue}}"
+  set -g @colorme_bright_magenta "{{bright_magenta}}"
+  set -g @colorme_bright_cyan "{{bright_cyan}}"
+  set -g @colorme_bright_orange "{{bright_orange}}"
+
   # tmux colorscheme (Boxy & Colorful)
   set -g status-position bottom
   set -g status-justify "left"

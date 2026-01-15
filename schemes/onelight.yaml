@@ -1,0 +1,33 @@
+name: "onelight"
+author: "Atom"
+background_mode: "light"
+colors:
+  background: "#fafafa"
+  foreground: "#383a42"
+  selection_background: "#e5e5e6"
+  selection_foreground: "#383a42"
+  cursor: "#4078f2"
+  
+  black:   "#fafafa"
+  red:     "#e45649"
+  green:   "#50a14f"
+  yellow:  "#986801"
+  blue:    "#4078f2"
+  magenta: "#a626a4"
+  cyan:    "#0184bc"
+  white:   "#a0a1a7"
+  orange:  "#d19a66"
+  
+  bright_black:   "#696c77"
+  bright_red:     "#e06c75"
+  bright_green:   "#98c379"
+  bright_yellow:  "#e5c07b"
+  bright_blue:    "#61afef"
+  bright_magenta: "#c678dd"
+  bright_cyan:    "#56b6c2"
+  bright_white:   "#383a42"
+  bright_orange:  "#d19a66"
+
+  # Aliases for template compatibility
+  surface0: "#e5e5e6" # selection_background
+  overlay0: "#a0a1a7" # mono 3
