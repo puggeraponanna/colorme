@@ -6,13 +6,14 @@ SCHEME=${1:-nord}
 echo "Applying colorscheme: $SCHEME"
 
 # Ensure directories exist
-mkdir -p ~/.config/nvim/lua/colors
+mkdir -p ~/.config/nvim/colors
 mkdir -p ~/.config/ghostty
 
 # 1. Neovim
 if [ -f "output/neovim/${SCHEME}.lua" ]; then
-    echo "  - Copying Neovim colorscheme to ~/.config/nvim/lua/colors/${SCHEME}.lua"
-    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/lua/colors/
+    echo "  - Copying Neovim colorscheme to ~/.config/nvim/colors/${SCHEME}.lua"
+    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/colors/
+    echo "    (Tip: Add 'vim.cmd(\"colorscheme ${SCHEME}\")' to your init.lua)"
 else
     echo "  - Warning: Neovim scheme for $SCHEME not found."
 fi

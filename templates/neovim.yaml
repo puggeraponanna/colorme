@@ -22,13 +22,22 @@ template: |
 
   local cp = flavors["{{name}}"]
 
+  -- Transparency toggle (default to false, but easy to change)
+  local transparent = false
+  local bg = transparent and "NONE" or cp.base
+
   vim.cmd("highlight clear")
   vim.o.termguicolors = true
   vim.g.colors_name = "{{name}}"
 
   local groups = {
     -- Base highlights
-    Normal = { fg = cp.text, bg = cp.base },
+    Normal = { fg = cp.text, bg = bg },
+    NormalNC = { fg = cp.text, bg = bg },
+    SignColumn = { bg = bg },
+    MsgArea = { fg = cp.text, bg = bg },
+    EndOfBuffer = { fg = bg }, -- Hide the ~ symbols
+    
     CursorLine = { bg = cp.surface0 },
     Visual = { bg = cp.surface0, bold = true },
     Search = { fg = cp.base, bg = cp.yellow },
