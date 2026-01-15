@@ -11,9 +11,9 @@ mkdir -p ~/.config/ghostty
 
 # 1. Neovim
 if [ -f "output/neovim/${SCHEME}.lua" ]; then
-    echo "  - Copying Neovim colorscheme to ~/.config/nvim/colors/${SCHEME}.lua"
-    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/colors/
-    echo "    (Tip: Add 'vim.cmd(\"colorscheme ${SCHEME}\")' to your init.lua)"
+    echo "  - Copying Neovim colorscheme to ~/.config/nvim/colors/colorme.lua"
+    cp "output/neovim/${SCHEME}.lua" ~/.config/nvim/colors/colorme.lua
+    echo "    (Tip: Add 'vim.cmd(\"colorscheme colorme\")' to your init.lua)"
 else
     echo "  - Warning: Neovim scheme for $SCHEME not found."
 fi
@@ -21,16 +21,16 @@ fi
 # 2. Tmux
 if [ -f "output/tmux/${SCHEME}.conf" ]; then
     mkdir -p ~/.config/tmux
-    echo "  - Copying Tmux configuration to ~/.config/tmux/tmux.conf.colors"
-    cp "output/tmux/${SCHEME}.conf" ~/.config/tmux/tmux.conf.colors
-    echo "    (Tip: Add 'source-file ~/.config/tmux/tmux.conf.colors' to your ~/.tmux.conf or ~/.config/tmux/tmux.conf)"
+    echo "  - Copying Tmux configuration to ~/.config/tmux/colorme.conf"
+    cp "output/tmux/${SCHEME}.conf" ~/.config/tmux/colorme.conf
+    echo "    (Tip: Add 'source-file ~/.config/tmux/colorme.conf' to your ~/.tmux.conf or ~/.config/tmux/tmux.conf)"
 fi
 
 # 3. Ghostty
 if [ -f "output/ghostty/${SCHEME}" ]; then
-    echo "  - Copying Ghostty configuration to ~/.config/ghostty/theme"
-    cp "output/ghostty/${SCHEME}" ~/.config/ghostty/theme
-    echo "    (Tip: Add 'config-file = theme' to your ~/.config/ghostty/config)"
+    echo "  - Copying Ghostty configuration to ~/.config/ghostty/colorme"
+    cp "output/ghostty/${SCHEME}" ~/.config/ghostty/colorme
+    echo "    (Tip: Add 'config-file = colorme' to your ~/.config/ghostty/config)"
 fi
 
 # 4. FZF
@@ -44,7 +44,7 @@ fi
 if [ -f "output/starship/${SCHEME}.toml" ]; then
     echo "  - Copying Starship palette to ~/.config/starship_colors.toml"
     cp "output/starship/${SCHEME}.toml" ~/.config/starship_colors.toml
-    echo "    (Tip: Add 'palette = \"${SCHEME}\"' and 'format = ...' setup to your starship.toml. You can 'add_to_config = \"~/.config/starship_colors.toml\"' if using newer starship versions or just manual copy.)"
+    echo "    (Tip: Add 'palette = \"colorme\"' and 'format = ...' setup to your starship.toml.)"
 fi
 
 echo "Done! Some apps might require a restart or manual sourcing to reflect changes."

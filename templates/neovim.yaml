@@ -2,7 +2,7 @@ extension: ".lua"
 template: |
   -- Neovim colorscheme (Catppuccin-style organization)
   local flavors = {
-    {{name}} = {
+    colorme = {
       base = "{{background}}",
       text = "{{foreground}}",
       surface0 = "{{selection_background}}",
@@ -20,7 +20,7 @@ template: |
     }
   }
 
-  local cp = flavors["{{name}}"]
+  local cp = flavors["colorme"]
 
   -- Transparency toggle (default to false, but easy to change)
   local transparent = false
@@ -28,7 +28,7 @@ template: |
 
   vim.cmd("highlight clear")
   vim.o.termguicolors = true
-  vim.g.colors_name = "{{name}}"
+  vim.g.colors_name = "colorme"
 
   local groups = {
     -- Base highlights

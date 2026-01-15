@@ -1,9 +1,9 @@
 extension: ".toml"
 template: |
-  # Starship palette for {{name}}
-  palette = "{{name_lower}}"
+  # Starship palette
+  palette = "colorme"
 
-  [palettes.{{name_lower}}]
+  [palettes.colorme]
   rosewater = "{{bright_red}}"
   flamingo = "{{bright_red}}"
   pink = "{{bright_magenta}}"
