@@ -49,14 +49,146 @@ template: |
     Comment = { fg = cp.overlay0, italic = true },
     Constant = { fg = cp.pink },
     String = { fg = cp.green },
+    Character = { fg = cp.green },
+    Number = { fg = cp.orange or cp.maroon },
+    Boolean = { fg = cp.orange or cp.maroon },
+    Float = { fg = cp.orange or cp.maroon },
+    
     Identifier = { fg = cp.sky },
     Function = { fg = cp.blue },
+    
     Statement = { fg = cp.magenta },
+    Conditional = { fg = cp.magenta },
+    Repeat = { fg = cp.magenta },
+    Label = { fg = cp.magenta },
+    Operator = { fg = cp.cyan },
+    Keyword = { fg = cp.magenta },
+    Exception = { fg = cp.magenta },
+    
     PreProc = { fg = cp.pink },
+    Include = { fg = cp.pink },
+    Define = { fg = cp.pink },
+    Macro = { fg = cp.pink },
+    PreCondit = { fg = cp.pink },
+    
     Type = { fg = cp.yellow },
+    StorageClass = { fg = cp.yellow },
+    Structure = { fg = cp.yellow },
+    Typedef = { fg = cp.yellow },
+    
     Special = { fg = cp.pink },
+    SpecialChar = { fg = cp.pink },
+    Tag = { fg = cp.pink },
+    Delimiter = { fg = cp.cyan },
+    SpecialComment = { fg = cp.overlay0, italic = true },
+    Debug = { fg = cp.red },
+    
+    Underlined = { underline = true },
+    Ignore = { fg = cp.base },
     Error = { fg = cp.red, bold = true },
     Todo = { fg = cp.base, bg = cp.yellow, bold = true },
+
+    -- Treesitter
+    ["@variable"] = { fg = cp.text },
+    ["@variable.builtin"] = { fg = cp.red },
+    ["@variable.parameter"] = { fg = cp.maroon, italic = true },
+    ["@variable.member"] = { fg = cp.red },
+
+    ["@constant"] = { fg = cp.pink },
+    ["@constant.builtin"] = { fg = cp.pink },
+    ["@constant.macro"] = { fg = cp.pink },
+
+    ["@module"] = { fg = cp.sky },
+    ["@module.builtin"] = { fg = cp.sky },
+    
+    ["@label"] = { fg = cp.magenta },
+
+    ["@string"] = { fg = cp.green },
+    ["@string.documentation"] = { fg = cp.green },
+    ["@string.regexp"] = { fg = cp.orange or cp.maroon },
+    ["@string.escape"] = { fg = cp.pink },
+    ["@string.special"] = { fg = cp.pink },
+
+    ["@character"] = { fg = cp.green },
+    ["@character.special"] = { fg = cp.pink },
+
+    ["@boolean"] = { fg = cp.orange or cp.maroon },
+    ["@number"] = { fg = cp.orange or cp.maroon },
+    ["@number.float"] = { fg = cp.orange or cp.maroon },
+
+    ["@type"] = { fg = cp.yellow },
+    ["@type.builtin"] = { fg = cp.yellow },
+    ["@type.definition"] = { fg = cp.yellow },
+    ["@type.qualifier"] = { fg = cp.yellow },
+
+    ["@attribute"] = { fg = cp.blue },
+    ["@property"] = { fg = cp.red },
+
+    ["@function"] = { fg = cp.blue },
+    ["@function.builtin"] = { fg = cp.blue },
+    ["@function.call"] = { fg = cp.blue },
+    ["@function.macro"] = { fg = cp.blue },
+    ["@function.method"] = { fg = cp.blue },
+    ["@function.method.call"] = { fg = cp.blue },
+
+    ["@constructor"] = { fg = cp.magenta },
+    ["@operator"] = { fg = cp.cyan },
+
+    ["@keyword"] = { fg = cp.magenta },
+    ["@keyword.coroutine"] = { fg = cp.magenta },
+    ["@keyword.function"] = { fg = cp.magenta },
+    ["@keyword.operator"] = { fg = cp.magenta },
+    ["@keyword.import"] = { fg = cp.pink },
+    ["@keyword.type"] = { fg = cp.magenta },
+    ["@keyword.modifier"] = { fg = cp.magenta },
+    ["@keyword.repeat"] = { fg = cp.magenta },
+    ["@keyword.return"] = { fg = cp.magenta },
+    ["@keyword.debug"] = { fg = cp.magenta },
+    ["@keyword.exception"] = { fg = cp.magenta },
+    ["@keyword.conditional"] = { fg = cp.magenta },
+    ["@keyword.directive"] = { fg = cp.pink },
+    ["@keyword.directive.define"] = { fg = cp.pink },
+
+    ["@punctuation.delimiter"] = { fg = cp.cyan },
+    ["@punctuation.bracket"] = { fg = cp.text },
+    ["@punctuation.special"] = { fg = cp.cyan },
+
+    ["@comment"] = { fg = cp.overlay0, italic = true },
+    ["@comment.documentation"] = { fg = cp.overlay0 },
+    ["@comment.error"] = { fg = cp.red },
+    ["@comment.warning"] = { fg = cp.yellow },
+    ["@comment.todo"] = { fg = cp.base, bg = cp.yellow },
+    ["@comment.note"] = { fg = cp.base, bg = cp.sky },
+
+    ["@markup.strong"] = { bold = true },
+    ["@markup.italic"] = { italic = true },
+    ["@markup.strikethrough"] = { strikethrough = true },
+    ["@markup.underline"] = { underline = true },
+
+    ["@markup.heading"] = { fg = cp.blue, bold = true },
+
+    ["@markup.quote"] = { fg = cp.overlay0 },
+    ["@markup.math"] = { fg = cp.cyan },
+    ["@markup.environment"] = { fg = cp.magenta },
+
+    ["@markup.link"] = { fg = cp.blue },
+    ["@markup.link.label"] = { fg = cp.blue },
+    ["@markup.link.url"] = { fg = cp.sky, underline = true },
+
+    ["@markup.raw"] = { fg = cp.green },
+    ["@markup.raw.block"] = { fg = cp.green },
+
+    ["@markup.list"] = { fg = cp.magenta },
+    ["@markup.list.checked"] = { fg = cp.green },
+    ["@markup.list.unchecked"] = { fg = cp.text },
+
+    ["@diff.plus"] = { fg = cp.green },
+    ["@diff.minus"] = { fg = cp.red },
+    ["@diff.delta"] = { fg = cp.yellow },
+
+    ["@tag"] = { fg = cp.magenta },
+    ["@tag.attribute"] = { fg = cp.yellow },
+    ["@tag.delimiter"] = { fg = cp.cyan },
 
     -- UI
     Pmenu = { fg = cp.text, bg = cp.surface0 },
@@ -66,6 +198,16 @@ template: |
     VertSplit = { fg = cp.surface0 },
     StatusLine = { fg = cp.text, bg = cp.surface0 },
     StatusLineNC = { fg = cp.overlay0, bg = cp.surface0 },
+
+    -- Floating Windows
+    NormalFloat = { fg = cp.text, bg = cp.base },
+    FloatBorder = { fg = cp.blue },
+
+    -- LSP
+    LspReferenceText = { bg = cp.surface0 },
+    LspReferenceRead = { bg = cp.surface0 },
+    LspReferenceWrite = { bg = cp.surface0 },
+    LspSignatureActiveParameter = { fg = cp.blue, bold = true },
 
     -- Cursor & Mode
     Cursor = { fg = cp.base, bg = cp.text },
@@ -131,6 +273,29 @@ template: |
     LazyH2 = { fg = cp.blue, bold = true },
     LazyProgressDone = { fg = cp.blue },
     LazyProgressTodo = { fg = cp.overlay0 },
+
+    -- Telescope
+    TelescopeBorder = { fg = cp.surface0, bg = bg },
+    TelescopeNormal = { fg = cp.text, bg = bg },
+    TelescopeSelection = { bg = cp.surface0 },
+    TelescopeMatching = { fg = cp.pink, bold = true },
+    TelescopePromptPrefix = { fg = cp.blue },
+    TelescopePromptNormal = { fg = cp.text, bg = cp.base },
+    TelescopeResultsNormal = { fg = cp.text, bg = bg },
+    TelescopePreviewNormal = { fg = cp.text, bg = bg },
+
+    -- GitSigns
+    GitSignsAdd = { fg = cp.green },
+    GitSignsChange = { fg = cp.yellow },
+    GitSignsDelete = { fg = cp.red },
+
+    -- WhichKey
+    WhichKey = { fg = cp.blue },
+    WhichKeyGroup = { fg = cp.magenta },
+    WhichKeyDesc = { fg = cp.sky },
+    WhichKeySeparator = { fg = cp.overlay0 },
+    WhichKeyFloat = { bg = cp.base },
+    WhichKeyValue = { fg = cp.overlay0 },
   }
 
   for group, hl in pairs(groups) do
